@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+build/
+dist/
+.venv/
+venv/
+# transient gallery byproducts (keep committed PNGs + index.html)
+gallery/_montage.html
+gallery/_index.png
+.cache/

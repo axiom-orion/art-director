@@ -1,0 +1,45 @@
+{
+  "n_briefs": 12,
+  "seed": 7,
+  "configs": {
+    "naive": {
+      "aggregate": 0.558,
+      "critics": {
+        "accessibility": 0.223,
+        "harmony": 0.888,
+        "typography": 0.69,
+        "brief_fit": 0.617
+      },
+      "aa_pass_rate": 0.125,
+      "aa_pass": 12,
+      "aa_total": 96,
+      "mean_rounds": 0
+    },
+    "steer": {
+      "aggregate": 0.862,
+      "critics": {
+        "accessibility": 0.834,
+        "harmony": 0.909,
+        "typography": 0.904,
+        "brief_fit": 0.827
+      },
+      "aa_pass_rate": 0.875,
+      "aa_pass": 84,
+      "aa_total": 96,
+      "mean_rounds": 0
+    },
+    "critic-loop": {
+      "aggregate": 0.876,
+      "critics": {
+        "accessibility": 0.864,
+        "harmony": 0.925,
+        "typography": 0.904,
+        "brief_fit": 0.828
+      },
+      "aa_pass_rate": 0.917,
+      "aa_pass": 88,
+      "aa_total": 96,
+      "mean_rounds": 5.25
+    }
+  }
+}

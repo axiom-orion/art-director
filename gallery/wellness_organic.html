@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Identity — a warm organic wellness studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&family=Source+Serif+4:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#f9f2ef; --surface:#f1e6e1; --text:#2f2621;
+    --muted:#756862; --primary:#a46542; --secondary:#618f61;
+    --accent:#ca6e95; --radius:17px;
+    --sp1:7px; --sp2:14px; --sp3:21px; --sp4:28px; --sp5:42px; --sp6:56px;
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--text);
+    font-family:'Nunito', system-ui, sans-serif; line-height:1.6; -webkit-font-smoothing:antialiased; }
+  h1,h2,h3 { font-family:'Source Serif 4', Georgia, serif; line-height:1.12; margin:0 0 var(--sp2); letter-spacing:-0.01em; }
+  .wrap { max-width:1080px; margin:0 auto; padding:var(--sp6) var(--sp4); }
+  .eyebrow { font-family:'Nunito', system-ui, sans-serif; text-transform:uppercase; letter-spacing:.16em;
+    font-size:.72rem; font-weight:600; color:var(--muted); margin-bottom:var(--sp2); }
+  .hero { padding:var(--sp6) var(--sp5); border-radius:var(--radius); background:var(--surface);
+    border:1px solid color-mix(in srgb, var(--text) 8%, transparent); margin-bottom:var(--sp6); }
+  .hero h1 { font-size:3.586rem; max-width:18ch; }
+  .hero p { font-size:1.291rem; color:var(--muted); max-width:54ch; }
+  .cta { display:inline-flex; gap:var(--sp2); margin-top:var(--sp3); }
+  .btn { font-family:'Nunito', system-ui, sans-serif; font-weight:600; font-size:1rem; border:0; cursor:pointer;
+    padding:calc(var(--sp2) + 2px) var(--sp4); border-radius:var(--radius); }
+  .btn-primary { background:var(--primary); color:#ffffff; }
+  .btn-secondary { background:transparent; color:var(--text);
+    border:1.5px solid var(--secondary); }
+  section { margin-bottom:var(--sp6); }
+  .section-title { font-size:1.667rem; }
+  .palette { display:grid; grid-template-columns:repeat(auto-fit,minmax(132px,1fr)); gap:var(--sp2); }
+  .swatch { border-radius:var(--radius); padding:var(--sp3); min-height:118px;
+    display:flex; flex-direction:column; justify-content:space-between;
+    border:1px solid color-mix(in srgb, var(--text) 10%, transparent); }
+  .swatch-role { font-weight:700; text-transform:capitalize; }
+  .swatch-hex { font-family:ui-monospace,monospace; font-size:.8rem; opacity:.85; }
+  .badge { font-family:ui-monospace,monospace; font-size:.68rem; font-weight:600;
+    padding:2px 7px; border-radius:999px; display:inline-block;
+    background:color-mix(in srgb, currentColor 14%, transparent); }
+  .type-row { display:flex; align-items:baseline; gap:var(--sp4); padding:var(--sp2) 0;
+    border-bottom:1px solid color-mix(in srgb, var(--text) 7%, transparent); }
+  .type-meta { font-family:ui-monospace,monospace; font-size:.72rem; color:var(--muted);
+    min-width:120px; }
+  .type-sample { font-family:'Source Serif 4', Georgia, serif; }
+  .components { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:var(--sp3); }
+  .card { background:var(--surface); border-radius:var(--radius); padding:var(--sp4);
+    border:1px solid color-mix(in srgb, var(--text) 8%, transparent); }
+  .card h3 { font-size:1.291rem; }
+  .chip { display:inline-block; padding:4px 12px; border-radius:999px; font-size:.78rem; font-weight:600;
+    background:var(--accent); color:#2f2621; margin:2px; }
+  .input { width:100%; padding:var(--sp2) var(--sp3); border-radius:var(--radius);
+    border:1.5px solid var(--muted); background:var(--bg); color:var(--text); font-size:1rem; }
+  .scorecard { width:100%; border-collapse:collapse; font-size:.86rem; }
+  .scorecard th,.scorecard td { text-align:left; padding:8px 10px;
+    border-bottom:1px solid color-mix(in srgb, var(--text) 9%, transparent); vertical-align:top; }
+  .scorecard th { font-family:'Nunito', system-ui, sans-serif; text-transform:uppercase; letter-spacing:.1em;
+    font-size:.68rem; color:var(--muted); }
+  .scorecard .num { font-family:ui-monospace,monospace; text-align:right; white-space:nowrap; }
+  .scorecard .delta { color:var(--primary); }
+  .scorecard .why { color:var(--muted); font-size:.8rem; }
+  .scorecard tfoot td { font-weight:700; border-top:2px solid var(--text); }
+  .meta-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:var(--sp2); }
+  .meta { background:var(--surface); border-radius:var(--radius); padding:var(--sp3);
+    border:1px solid color-mix(in srgb, var(--text) 8%, transparent); }
+  .meta b { display:block; font-family:ui-monospace,monospace; font-size:.74rem; color:var(--muted);
+    text-transform:uppercase; letter-spacing:.08em; margin-bottom:4px; }
+  footer { color:var(--muted); font-size:.8rem; padding-top:var(--sp4);
+    border-top:1px solid color-mix(in srgb, var(--text) 10%, transparent); }
+</style></head>
+<body><div class="wrap">
+
+  <div class="eyebrow">art-director · generated identity</div>
+  <div class="hero">
+    <div class="eyebrow" style="color:var(--accent)">clear, confident, human</div>
+    <h1>Grown, not manufactured.</h1>
+    <p>A sample of the system&#x27;s voice, generated to match the brief. Brief: “a warm organic wellness studio”.</p>
+    <div class="cta">
+      <button class="btn btn-primary">Start free</button>
+      <button class="btn btn-secondary">Learn more</button>
+    </div>
+  </div>
+
+  <section>
+    <div class="eyebrow">Palette · contrast measured to WCAG 2.1</div>
+    <h2 class="section-title">Color system</h2>
+    <div class="palette">
+      <div class="swatch" style="background:#f9f2ef;color:#2f2621">
+        <div class="swatch-role">bg</div>
+        <div class="swatch-hex">#f9f2ef</div>
+        <div class="swatch-foot"><span class="badge ok">13.4:1 · AAA</span></div>
+      </div>
+      <div class="swatch" style="background:#f1e6e1;color:#2f2621">
+        <div class="swatch-role">surface</div>
+        <div class="swatch-hex">#f1e6e1</div>
+        <div class="swatch-foot"><span class="badge ok">12.1:1 · AAA</span></div>
+      </div>
+      <div class="swatch" style="background:#2f2621;color:#ffffff">
+        <div class="swatch-role">text</div>
+        <div class="swatch-hex">#2f2621</div>
+        <div class="swatch-foot"><span class="badge ok">14.8:1 · AAA</span></div>
+      </div>
+      <div class="swatch" style="background:#756862;color:#ffffff">
+        <div class="swatch-role">muted</div>
+        <div class="swatch-hex">#756862</div>
+        <div class="swatch-foot"><span class="badge ok">5.4:1 · AA</span></div>
+      </div>
+      <div class="swatch" style="background:#a46542;color:#ffffff">
+        <div class="swatch-role">primary</div>
+        <div class="swatch-hex">#a46542</div>
+        <div class="swatch-foot"><span class="badge ok">4.6:1 · AA</span></div>
+      </div>
+      <div class="swatch" style="background:#618f61;color:#2f2621">
+        <div class="swatch-role">secondary</div>
+        <div class="swatch-hex">#618f61</div>
+        <div class="swatch-foot"><span class="badge bad">4.0:1 · fail</span></div>
+      </div>
+      <div class="swatch" style="background:#ca6e95;color:#2f2621">
+        <div class="swatch-role">accent</div>
+        <div class="swatch-hex">#ca6e95</div>
+        <div class="swatch-foot"><span class="badge bad">4.3:1 · fail</span></div>
+      </div></div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Type · Source Serif 4 + Nunito · scale 1.291</div>
+    <h2 class="section-title">Typographic scale</h2>
+    <div class="type-row"><span class="type-meta">step5 · 3.586rem</span><div class="type-sample" style="font-size:3.586rem">The migration of forms</div></div><div class="type-row"><span class="type-meta">step4 · 2.778rem</span><div class="type-sample" style="font-size:2.778rem">The migration of forms</div></div><div class="type-row"><span class="type-meta">step3 · 2.152rem</span><div class="type-sample" style="font-size:2.152rem">The migration of forms</div></div><div class="type-row"><span class="type-meta">step2 · 1.667rem</span><div class="type-sample" style="font-size:1.667rem">The migration of forms</div></div><div class="type-row"><span class="type-meta">step1 · 1.291rem</span><div class="type-sample" style="font-size:1.291rem">The migration of forms</div></div><div class="type-row"><span class="type-meta">step0 · 1.0rem</span><div class="type-sample" style="font-size:1.0rem">The migration of forms</div></div><div class="type-row"><span class="type-meta">step-1 · 0.775rem</span><div class="type-sample" style="font-size:0.775rem">The migration of forms</div></div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Components</div>
+    <h2 class="section-title">In context</h2>
+    <div class="components">
+      <div class="card">
+        <h3>Card title</h3>
+        <p style="color:var(--muted)">Body copy set in Nunito, sized on the modular scale for comfortable measure.</p>
+        <button class="btn btn-primary" style="margin-top:var(--sp2)">Start free</button>
+      </div>
+      <div class="card">
+        <h3>Tags &amp; badges</h3>
+        <div><span class="chip">new</span><span class="chip">featured</span><span class="chip">pro</span></div>
+        <label style="display:block;margin-top:var(--sp3)">
+          <input class="input" placeholder="you@example.com" />
+        </label>
+      </div>
+      <div class="card">
+        <h3>Tokens</h3>
+        <div class="meta-grid">
+          <div class="meta"><b>radius</b>17px</div>
+          <div class="meta"><b>base space</b>7px</div>
+          <div class="meta"><b>scale</b>1.291</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Why this passes · the critic loop is the product</div>
+    <h2 class="section-title">Scorecard</h2>
+    
+    <table class="scorecard">
+      <thead><tr><th>critic</th><th>naive</th><th>directed</th><th>Δ</th><th>rationale</th></tr></thead>
+      <tbody><tr><td>accessibility</td><td class='num'>0.224</td><td class='num'>0.839</td><td class='num delta'>▲ +0.615</td><td class='why'>7/8 text pairings meet WCAG AA (worst 3.40:1). 1 failing.</td></tr><tr><td>harmony</td><td class='num'>0.885</td><td class='num'>0.995</td><td class='num delta'>▲ +0.111</td><td class='why'>hues ≈ split-complementary (0.99); brand separation clean; neutral spread 5°.</td></tr><tr><td>typography</td><td class='num'>0.679</td><td class='num'>0.922</td><td class='num delta'>▲ +0.243</td><td class='why'>Source Serif 4 + Nunito (scale 1.291): hierarchy 0.99, cohesion 0.92, legibility 0.76, register 0.94</td></tr><tr><td>brief_fit</td><td class='num'>0.640</td><td class='num'>0.889</td><td class='num delta'>▲ +0.248</td><td class='why'>weighted brief match 0.89 (mean Δ 0.08); warmth Δ+0.23, chroma Δ+0.00, density Δ+0.05, roundness Δ+0.01</td></tr></tbody>
+      <tfoot><tr><td>aggregate</td><td class='num'>0.562</td>
+        <td class='num'>0.903</td>
+        <td class='num delta'>+0.341</td>
+        <td class='why'>0 repair rounds</td></tr></tfoot>
+    </table>
+  </section>
+
+  <footer>
+    Generated by <b>art-director</b> from the brief “a warm organic wellness studio”.
+    Naive single-shot 0.562 → critic-directed 0.903
+    over 0 repair rounds. Every contrast figure is computed to WCAG 2.1; harmony by CIEDE2000.
+  </footer>
+
+</div></body></html>

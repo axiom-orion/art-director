@@ -1,0 +1,59 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "art-director"
+version = "0.1.0"
+description = "Taste, made computable: a brief → full visual-identity engine with a self-critiquing design loop."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+authors = [{ name = "axiom-orion" }]
+keywords = ["design-systems", "generative-design", "color", "wcag", "typography", "ai"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Multimedia :: Graphics",
+]
+# The engine and critics are pure-Python standard library by design — the
+# "measured taste" claim should not depend on a heavy numeric stack.
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7", "ruff>=0.4"]
+# rendering screenshots for the gallery is optional and browser-backed
+shots = ["playwright>=1.40"]
+
+[project.scripts]
+art-director = "art_director.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/axiom-orion/art-director"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py310"
+src = ["src", "eval", "scripts", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+ignore = ["E741"]  # ambiguous var names (L, a, b) are standard in color science
+
+[tool.ruff.lint.per-file-ignores]
+# These carry inherently long lines that wrapping would only obscure:
+# render.py is CSS embedded in an f-string; the data modules are wide
+# attribute tables; the eval composes long prose lines for results.md.
+"src/art_director/render.py" = ["E501"]
+"src/art_director/typography.py" = ["E501"]
+"src/art_director/brief.py" = ["E501"]
+"eval/run_eval.py" = ["E501"]
+"scripts/build_gallery.py" = ["E501"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "-q"

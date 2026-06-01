@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Identity — an elegant luxury jewelry brand</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#edf1f5; --surface:#dfe6ec; --text:#1e242a;
+    --muted:#5f676d; --primary:#3e7798; --secondary:#877a9d;
+    --accent:#3b98a3; --radius:12px;
+    --sp1:6px; --sp2:12px; --sp3:18px; --sp4:24px; --sp5:36px; --sp6:48px;
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--text);
+    font-family:'DM Sans', system-ui, sans-serif; line-height:1.6; -webkit-font-smoothing:antialiased; }
+  h1,h2,h3 { font-family:'Playfair Display', Georgia, serif; line-height:1.12; margin:0 0 var(--sp2); letter-spacing:-0.01em; }
+  .wrap { max-width:1080px; margin:0 auto; padding:var(--sp6) var(--sp4); }
+  .eyebrow { font-family:'DM Sans', system-ui, sans-serif; text-transform:uppercase; letter-spacing:.16em;
+    font-size:.72rem; font-weight:600; color:var(--muted); margin-bottom:var(--sp2); }
+  .hero { padding:var(--sp6) var(--sp5); border-radius:var(--radius); background:var(--surface);
+    border:1px solid color-mix(in srgb, var(--text) 8%, transparent); margin-bottom:var(--sp6); }
+  .hero h1 { font-size:3.239rem; max-width:18ch; }
+  .hero p { font-size:1.265rem; color:var(--muted); max-width:54ch; }
+  .cta { display:inline-flex; gap:var(--sp2); margin-top:var(--sp3); }
+  .btn { font-family:'DM Sans', system-ui, sans-serif; font-weight:600; font-size:1rem; border:0; cursor:pointer;
+    padding:calc(var(--sp2) + 2px) var(--sp4); border-radius:var(--radius); }
+  .btn-primary { background:var(--primary); color:#ffffff; }
+  .btn-secondary { background:transparent; color:var(--text);
+    border:1.5px solid var(--secondary); }
+  section { margin-bottom:var(--sp6); }
+  .section-title { font-size:1.6rem; }
+  .palette { display:grid; grid-template-columns:repeat(auto-fit,minmax(132px,1fr)); gap:var(--sp2); }
+  .swatch { border-radius:var(--radius); padding:var(--sp3); min-height:118px;
+    display:flex; flex-direction:column; justify-content:space-between;
+    border:1px solid color-mix(in srgb, var(--text) 10%, transparent); }
+  .swatch-role { font-weight:700; text-transform:capitalize; }
+  .swatch-hex { font-family:ui-monospace,monospace; font-size:.8rem; opacity:.85; }
+  .badge { font-family:ui-monospace,monospace; font-size:.68rem; font-weight:600;
+    padding:2px 7px; border-radius:999px; display:inline-block;
+    background:color-mix(in srgb, currentColor 14%, transparent); }
+  .type-row { display:flex; align-items:baseline; gap:var(--sp4); padding:var(--sp2) 0;
+    border-bottom:1px solid color-mix(in srgb, var(--text) 7%, transparent); }
+  .type-meta { font-family:ui-monospace,monospace; font-size:.72rem; color:var(--muted);
+    min-width:120px; }
+  .type-sample { font-family:'Playfair Display', Georgia, serif; }
+  .components { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:var(--sp3); }
+  .card { background:var(--surface); border-radius:var(--radius); padding:var(--sp4);
+    border:1px solid color-mix(in srgb, var(--text) 8%, transparent); }
+  .card h3 { font-size:1.265rem; }
+  .chip { display:inline-block; padding:4px 12px; border-radius:999px; font-size:.78rem; font-weight:600;
+    background:var(--accent); color:#1e242a; margin:2px; }
+  .input { width:100%; padding:var(--sp2) var(--sp3); border-radius:var(--radius);
+    border:1.5px solid var(--muted); background:var(--bg); color:var(--text); font-size:1rem; }
+  .scorecard { width:100%; border-collapse:collapse; font-size:.86rem; }
+  .scorecard th,.scorecard td { text-align:left; padding:8px 10px;
+    border-bottom:1px solid color-mix(in srgb, var(--text) 9%, transparent); vertical-align:top; }
+  .scorecard th { font-family:'DM Sans', system-ui, sans-serif; text-transform:uppercase; letter-spacing:.1em;
+    font-size:.68rem; color:var(--muted); }
+  .scorecard .num { font-family:ui-monospace,monospace; text-align:right; white-space:nowrap; }
+  .scorecard .delta { color:var(--primary); }
+  .scorecard .why { color:var(--muted); font-size:.8rem; }
+  .scorecard tfoot td { font-weight:700; border-top:2px solid var(--text); }
+  .meta-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:var(--sp2); }
+  .meta { background:var(--surface); border-radius:var(--radius); padding:var(--sp3);
+    border:1px solid color-mix(in srgb, var(--text) 8%, transparent); }
+  .meta b { display:block; font-family:ui-monospace,monospace; font-size:.74rem; color:var(--muted);
+    text-transform:uppercase; letter-spacing:.08em; margin-bottom:4px; }
+  footer { color:var(--muted); font-size:.8rem; padding-top:var(--sp4);
+    border-top:1px solid color-mix(in srgb, var(--text) 10%, transparent); }
+</style></head>
+<body><div class="wrap">
+
+  <div class="eyebrow">art-director · generated identity</div>
+  <div class="hero">
+    <div class="eyebrow" style="color:var(--accent)">measured, authoritative, precise</div>
+    <h1>Quiet confidence, considered detail.</h1>
+    <p>A sample of the system&#x27;s voice, generated to match the brief. Brief: “an elegant luxury jewelry brand”.</p>
+    <div class="cta">
+      <button class="btn btn-primary">Request access</button>
+      <button class="btn btn-secondary">Learn more</button>
+    </div>
+  </div>
+
+  <section>
+    <div class="eyebrow">Palette · contrast measured to WCAG 2.1</div>
+    <h2 class="section-title">Color system</h2>
+    <div class="palette">
+      <div class="swatch" style="background:#edf1f5;color:#1e242a">
+        <div class="swatch-role">bg</div>
+        <div class="swatch-hex">#edf1f5</div>
+        <div class="swatch-foot"><span class="badge ok">13.8:1 · AAA</span></div>
+      </div>
+      <div class="swatch" style="background:#dfe6ec;color:#1e242a">
+        <div class="swatch-role">surface</div>
+        <div class="swatch-hex">#dfe6ec</div>
+        <div class="swatch-foot"><span class="badge ok">12.4:1 · AAA</span></div>
+      </div>
+      <div class="swatch" style="background:#1e242a;color:#ffffff">
+        <div class="swatch-role">text</div>
+        <div class="swatch-hex">#1e242a</div>
+        <div class="swatch-foot"><span class="badge ok">15.7:1 · AAA</span></div>
+      </div>
+      <div class="swatch" style="background:#5f676d;color:#ffffff">
+        <div class="swatch-role">muted</div>
+        <div class="swatch-hex">#5f676d</div>
+        <div class="swatch-foot"><span class="badge ok">5.8:1 · AA</span></div>
+      </div>
+      <div class="swatch" style="background:#3e7798;color:#ffffff">
+        <div class="swatch-role">primary</div>
+        <div class="swatch-hex">#3e7798</div>
+        <div class="swatch-foot"><span class="badge ok">4.9:1 · AA</span></div>
+      </div>
+      <div class="swatch" style="background:#877a9d;color:#ffffff">
+        <div class="swatch-role">secondary</div>
+        <div class="swatch-hex">#877a9d</div>
+        <div class="swatch-foot"><span class="badge bad">4.0:1 · fail</span></div>
+      </div>
+      <div class="swatch" style="background:#3b98a3;color:#1e242a">
+        <div class="swatch-role">accent</div>
+        <div class="swatch-hex">#3b98a3</div>
+        <div class="swatch-foot"><span class="badge ok">4.6:1 · AA</span></div>
+      </div></div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Type · Playfair Display + DM Sans · scale 1.265</div>
+    <h2 class="section-title">Typographic scale</h2>
+    <div class="type-row"><span class="type-meta">step5 · 3.239rem</span><div class="type-sample" style="font-size:3.239rem">The migration of forms</div></div><div class="type-row"><span class="type-meta">step4 · 2.561rem</span><div class="type-sample" style="font-size:2.561rem">The migration of forms</div></div><div class="type-row"><span class="type-meta">step3 · 2.024rem</span><div class="type-sample" style="font-size:2.024rem">The migration of forms</div></div><div class="type-row"><span class="type-meta">step2 · 1.6rem</span><div class="type-sample" style="font-size:1.6rem">The migration of forms</div></div><div class="type-row"><span class="type-meta">step1 · 1.265rem</span><div class="type-sample" style="font-size:1.265rem">The migration of forms</div></div><div class="type-row"><span class="type-meta">step0 · 1.0rem</span><div class="type-sample" style="font-size:1.0rem">The migration of forms</div></div><div class="type-row"><span class="type-meta">step-1 · 0.791rem</span><div class="type-sample" style="font-size:0.791rem">The migration of forms</div></div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Components</div>
+    <h2 class="section-title">In context</h2>
+    <div class="components">
+      <div class="card">
+        <h3>Card title</h3>
+        <p style="color:var(--muted)">Body copy set in DM Sans, sized on the modular scale for comfortable measure.</p>
+        <button class="btn btn-primary" style="margin-top:var(--sp2)">Request access</button>
+      </div>
+      <div class="card">
+        <h3>Tags &amp; badges</h3>
+        <div><span class="chip">new</span><span class="chip">featured</span><span class="chip">pro</span></div>
+        <label style="display:block;margin-top:var(--sp3)">
+          <input class="input" placeholder="you@example.com" />
+        </label>
+      </div>
+      <div class="card">
+        <h3>Tokens</h3>
+        <div class="meta-grid">
+          <div class="meta"><b>radius</b>12px</div>
+          <div class="meta"><b>base space</b>6px</div>
+          <div class="meta"><b>scale</b>1.265</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Why this passes · the critic loop is the product</div>
+    <h2 class="section-title">Scorecard</h2>
+    
+    <table class="scorecard">
+      <thead><tr><th>critic</th><th>naive</th><th>directed</th><th>Δ</th><th>rationale</th></tr></thead>
+      <tbody><tr><td>accessibility</td><td class='num'>0.223</td><td class='num'>0.926</td><td class='num delta'>▲ +0.703</td><td class='why'>8/8 text pairings meet WCAG AA (worst 3.38:1). all clear.</td></tr><tr><td>harmony</td><td class='num'>0.890</td><td class='num'>0.876</td><td class='num delta'>▼ -0.014</td><td class='why'>hues ≈ triadic (0.73); brand separation clean; neutral spread 7°.</td></tr><tr><td>typography</td><td class='num'>0.668</td><td class='num'>0.899</td><td class='num delta'>▲ +0.230</td><td class='why'>Playfair Display + DM Sans (scale 1.265): hierarchy 1.00, cohesion 0.72, legibility 0.74, register 0.95</td></tr><tr><td>brief_fit</td><td class='num'>0.604</td><td class='num'>0.811</td><td class='num delta'>▲ +0.207</td><td class='why'>weighted brief match 0.81 (mean Δ 0.13); chroma Δ+0.02, contrast Δ+0.25, formality Δ+0.20, hue_variety Δ+0.07</td></tr></tbody>
+      <tfoot><tr><td>aggregate</td><td class='num'>0.552</td>
+        <td class='num'>0.881</td>
+        <td class='num delta'>+0.329</td>
+        <td class='why'>2 repair rounds</td></tr></tfoot>
+    </table>
+  </section>
+
+  <footer>
+    Generated by <b>art-director</b> from the brief “an elegant luxury jewelry brand”.
+    Naive single-shot 0.552 → critic-directed 0.881
+    over 2 repair rounds. Every contrast figure is computed to WCAG 2.1; harmony by CIEDE2000.
+  </footer>
+
+</div></body></html>
