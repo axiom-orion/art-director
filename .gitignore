@@ -10,3 +10,4 @@ venv/
 # transient gallery byproducts (keep committed PNGs + index.html)
 gallery/_montage.html
 gallery/_index.png
+.cache/
