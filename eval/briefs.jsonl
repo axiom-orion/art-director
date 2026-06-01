@@ -1,0 +1,12 @@
+{"id": "fintech_calm", "brief": "a calm fintech app for nurses", "expect": {"warmth": "cool", "chroma": "low", "formality": "high"}}
+{"id": "record_brutalist", "brief": "a brutalist record label", "expect": {"chroma": "low", "contrast": "high", "roundness": "low"}}
+{"id": "kids_playful", "brief": "a playful app for kids", "expect": {"chroma": "high", "roundness": "high", "formality": "low"}}
+{"id": "luxury_jewelry", "brief": "an elegant luxury jewelry brand", "expect": {"formality": "high", "hue_variety": "low"}}
+{"id": "dev_minimal", "brief": "a minimal developer tool", "expect": {"chroma": "low", "density": "high"}}
+{"id": "gaming_energetic", "brief": "an energetic gaming brand", "expect": {"chroma": "high", "contrast": "high"}}
+{"id": "wellness_organic", "brief": "a warm organic wellness studio", "expect": {"warmth": "warm", "roundness": "high"}}
+{"id": "corporate_trust", "brief": "a trustworthy professional corporate consultancy", "expect": {"formality": "high", "chroma": "low"}}
+{"id": "editorial_modern", "brief": "a modern editorial magazine", "expect": {"contrast": "high", "formality": "mid"}}
+{"id": "eco_friendly", "brief": "a friendly eco nature subscription box", "expect": {"warmth": "warm", "roundness": "high"}}
+{"id": "saas_clean", "brief": "a clean professional saas platform", "expect": {"formality": "mid", "chroma": "mid"}}
+{"id": "luxury_minimal", "brief": "a refined minimal premium skincare brand", "expect": {"formality": "high", "chroma": "low"}}
