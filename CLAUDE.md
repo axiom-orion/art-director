@@ -82,8 +82,11 @@ python -m art_director "a playful kids app" --tokens tokens.json     # portable 
   onto main") was opened 2026-06-10 from a clone that predated PR #1's merge. Against
   current `main` its only effective change was *deleting* the README "Context" section —
   i.e. fully redundant / a regression. **Closed without merging on 2026-06-15.**
-- **2026-06-15 cleanup:** both now-merged/redundant branches deleted from this repo
-  (`claude/courier-art-director-migration-LqoPA`, `claude/courier-art-director-merge-h3WyP`).
+- **2026-06-15:** two branches in this repo are verified redundant with `main` and **safe
+  to delete** — `claude/courier-art-director-migration-LqoPA` (PR #1 source, merged) and
+  `claude/courier-art-director-merge-h3WyP` (PR #2, closed). Automated deletion was blocked
+  by the sandbox git proxy (HTTP 403 on ref deletes), so **delete them via the GitHub UI**
+  (Branches page) — neither contains anything not already in `main`.
   The `courier/art-director` orphan branch still lives in `genealogy-graphrag` as the
   original source of record — left in place; deleting it is the owner's call.
 - **Takeaway for future sessions:** the transplant is *done*. Do not re-open or re-create
