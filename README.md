@@ -161,3 +161,9 @@ art-director/
 ```
 
 MIT-licensed. CI runs lint, the full test suite, and the ablation eval — with a guard asserting the critic loop holds ≥85% AA pass-rate and beats the naive baseline by ≥0.2 aggregate, so a regression in the loop fails the build.
+
+---
+
+## Context
+
+Part of [**axiom-orion**](https://github.com/axiom-orion) — small, eval-driven engineering pieces that each turn one hand-waved claim into a reproducible number. The generate-then-critique loop and measurable rubrics shown here are the same principle the [**Vorion**](https://github.com/vorionsys) governed-AI platform (`@vorionsys/*`) applies to autonomous agents: don't trust a single shot — hold the output to account and repair what fails. Built by [Ryan Cason](https://github.com/vorionsys).
