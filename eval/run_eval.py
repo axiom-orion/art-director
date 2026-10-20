@@ -111,29 +111,33 @@ def main() -> None:
         lines.append(f"| {label[name]} | {cells} | {agg} | {aa} ({r['aa_pass']}/{r['aa_total']}) |")
     lines.append("")
     n = results["naive"]
+    s = results["steer"]
     f = results["critic-loop"]
     lines.append("## What moves\n")
     lines.append(f"- **Accessibility** is where ungoverned generation fails hardest: "
                  f"naive lands **{n['aa_pass_rate']*100:.0f}%** of text pairings at WCAG AA "
-                 f"({n['aa_pass']}/{n['aa_total']}); the critic loop reaches "
-                 f"**{f['aa_pass_rate']*100:.0f}%** ({f['aa_pass']}/{f['aa_total']}) by measuring every "
+                 f"({n['aa_pass']}/{n['aa_total']}). Steering generation with the brief recovers most of "
+                 f"that (**{s['aa_pass_rate']*100:.0f}%**, {s['aa_pass']}/{s['aa_total']}); the critic loop "
+                 f"reaches **{f['aa_pass_rate']*100:.0f}%** ({f['aa_pass']}/{f['aa_total']}) by measuring every "
                  f"pairing and repairing lightness until it clears the threshold.")
     lines.append(f"- **Aggregate quality** rises {n['aggregate']:.3f} → {f['aggregate']:.3f} "
                  f"across {len(briefs)} briefs, in a mean of {f['mean_rounds']:.1f} repair rounds.")
-    lines.append("- The **brief-steered generator alone** (middle row) already recovers most of "
-                 "the harmony and brief-fit gap; the critic loop's distinct contribution is "
-                 "closing the *accessibility* gap that generation-by-taste leaves open — you cannot "
-                 "eyeball a 4.5:1 contrast ratio, you have to compute it.")
+    lines.append("- The **brief-steered generator alone** (middle row) does most of the work on every "
+                 "axis, accessibility included. The critic loop's distinct contribution is fixing "
+                 f"{f['aa_pass'] - s['aa_pass']} of the {s['aa_total'] - s['aa_pass']} pairings steering "
+                 "still fails, and never shipping a worse result — you cannot eyeball a 4.5:1 contrast "
+                 "ratio, you have to compute it.")
     lines.append("")
     lines.append("## Honest notes\n")
     lines.append("- Scores are **rubric scores, not human ratings.** They measure conformance to "
                  "encoded design rules (WCAG contrast, CIEDE2000 separation, type-pairing heuristics, "
                  "brief-fit). They are a proxy for taste, not taste itself; the rules are defensible "
                  "and inspectable, which is the point.")
-    lines.append("- The **naive baseline is not a strawman**: it samples plausible colors near the "
-                 "brief hue, exactly as an ungoverned single-shot generator does. Its failure mode is "
-                 "the real one — text a touch too light, brand colors that collide, buttons whose "
-                 "white label misses AA.")
+    lines.append("- The **naive baseline models an ungoverned single-shot generator; it does not call "
+                 "one.** It samples plausible colors near the brief hue the way such a generator does, "
+                 "and fails the same way — text a touch too light, brand colors that collide, buttons "
+                 "whose white label misses AA. Comparing against a real single-shot model call is the "
+                 "natural next baseline.")
     lines.append("- Brief-fit is measured from the **rendered artifact** (re-derived warmth, chroma, "
                  "contrast, etc.), independent of the generator's inputs, so it catches drift between "
                  "intent and output.")

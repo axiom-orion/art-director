@@ -6,7 +6,7 @@
 
 The point this repo makes, and measures: **most of "good design" that people call subjective is actually checkable.** Contrast is a number (WCAG 2.1). Color harmony is geometry plus a perceptual distance metric (CIEDE2000). A type pairing is a small set of rules about hierarchy and register. Brief-fit is the distance between what you asked for and what the artifact actually measures. The engine generates by taste, then a panel of **critics** holds that taste to account — and the eval reports the lift, honestly.
 
-> The headline result: across 12 briefs, ungoverned single-shot generation passes WCAG AA contrast on **12% of text pairings**. The same generator wrapped in the critic loop reaches **92%** — because *you cannot eyeball a 4.5:1 contrast ratio, you have to compute it.*
+> The headline result: across 12 briefs, ungoverned single-shot generation passes WCAG AA contrast on **12% of text pairings**. Steering generation with the brief lifts that to **88%**, and the critic loop, which measures every pairing, takes it to **92%** — because *you cannot eyeball a 4.5:1 contrast ratio, you have to compute it.*
 
 Everything runs on CPU with **zero dependencies** (pure standard library); the numbers below are produced by `eval/run_eval.py`, not asserted.
 
@@ -24,7 +24,7 @@ Everything runs on CPU with **zero dependencies** (pure standard library); the n
 
 ### How to read this
 
-- **Accessibility is where ungoverned generation fails hardest.** A naive single-shot generator samples plausible colors near the brief's hue and calls it done — and lands text-on-background contrast at AA on just **12%** of the pairings a real UI renders. The critic loop measures every pairing and pushes lightness until it clears the threshold: **92%**. This is the critic loop's irreplaceable contribution.
+- **Accessibility is where ungoverned generation fails hardest.** A naive single-shot generator samples plausible colors near the brief's hue and calls it done — and lands text-on-background contrast at AA on just **12%** of the pairings a real UI renders. Steering color placement by the brief recovers most of that (**88%**, 84/96). The critic loop then measures every remaining pairing and pushes lightness until it clears the threshold, reaching **92%** (88/96): it fixes 4 of the 12 pairings steering still fails.
 - **The brief-steered generator (middle row) already recovers most of the harmony and brief-fit gap.** Placing color in perceptually-uniform LCh space and selecting type by rule gets you a long way. That's the honest caveat: a careful generator is most of the battle. What it *cannot* do is guarantee a hard accessibility floor — generation-by-taste leaves that open, and only measurement closes it.
 - **The aggregate lift is 0.558 → 0.876**, in a mean of ~5 repair rounds. The loop never ships a result worse than where it started (enforced in tests).
 
@@ -133,7 +133,7 @@ Each is generated from the brief alone — the teal-and-serif calm of the fintec
 ## Scope and honest notes
 
 - **Rubric scores are a proxy for taste, not taste itself.** They measure conformance to *encoded, inspectable* design rules. That's the deliberate trade: a defensible, auditable approximation you can argue with, rather than an opaque preference. The rules are the contribution; tune them in one place.
-- **The naive baseline is not a strawman.** It samples plausible colors near the brief hue exactly as an ungoverned single-shot generator does, with a fixed default type pairing. Its failure mode is the real one: text a touch too light, brand colors that collide, button labels that miss AA.
+- **The naive baseline models an ungoverned single-shot generator; it does not call one.** It samples plausible colors near the brief hue the way such a generator does, with a fixed default type pairing, and fails the same way: text a touch too light, brand colors that collide, button labels that miss AA. Comparing against a real single-shot model call is the natural next baseline.
 - **Brief-fit is measured from the rendered artifact** — warmth, chroma, contrast, etc. re-derived from the output, independent of the generator's inputs — so it catches drift between intent and result.
 - **An LLM judge is the natural next layer, not the core.** The always-on critics are deterministic and free by design (same reason genealogy-graphrag's eval runs without the cross-encoder). A model-as-judge for semantic brief-fit ("does this *feel* like a hospital?") slots in above this floor; it doesn't replace it.
 - **The lexicon and font catalogue are intentionally small** — enough to separate the configurations cleanly and keep the run deterministic and fast. Both are plain data; extending them is the obvious first contribution.
